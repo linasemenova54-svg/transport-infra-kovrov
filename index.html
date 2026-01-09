@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ООО «ТРАНСПОРТНАЯ ИНФРАСТРУКТУРА – КОВРОВ»</title>
+  <meta name="description" content="ООО «ТРАНСПОРТНАЯ ИНФРАСТРУКТУРА – КОВРОВ». Тоннели, путепроводы, эстакады и транспортные сооружения. Проект: платный дорожный тоннель в г. Ковров." />
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#0f1624;
+      --text:#e9eef8;
+      --muted:#aab6cf;
+      --line:rgba(255,255,255,.12);
+      --blue:#0E3A66;          /* corporate */
+      --graphite:#1f2834;      /* corporate */
+      --accent:#2E8B7A;        /* muted green */
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
+      --r:20px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0;
+      background:
+        radial-gradient(1200px 600px at 15% 0%, rgba(14,58,102,.28), transparent 60%),
+        radial-gradient(900px 500px at 85% 10%, rgba(46,139,122,.14), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .grid{display:grid; gap:16px}
+
+    /* NAV */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; min-width:280px}
+    .brand svg{height:38px; width:auto; display:block}
+    nav.menu{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav.menu a{
+      opacity:.92;
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav.menu a:hover{border-color:var(--line); background:rgba(255,255,255,.04)}
+    @media (max-width: 960px){
+      nav.menu{display:none}
+      .brand{min-width:auto}
+    }
+
+    /* UI */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); filter:brightness(1.04)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(14,58,102,.95), rgba(46,139,122,.80));
+      color:#071019;
+      border-color:transparent;
+    }
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0}
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      background:rgba(255,255,255,.03);
+    }
+
+    /* SECTIONS */
+    .hero{padding:46px 0 10px}
+    .heroGrid{grid-template-columns: 1.25fr .75fr}
+    @media (max-width: 960px){ .heroGrid{grid-template-columns:1fr} }
+    h1{font-size:44px; line-height:1.05; margin:0 0 12px}
+    .lead{color:var(--muted); font-size:16px; line-height:1.65; margin:0 0 16px}
+
+    section{padding:26px 0}
+    .titleRow{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px}
+    h2{margin:0; font-size:24px}
+    .sub{margin:0; color:var(--muted); font-size:14px}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
+    .pad{padding:18px}
+
+    .kpiGrid{grid-template-columns:repeat(3,1fr)}
+    @media (max-width: 960px){ .kpiGrid{grid-template-columns:1fr} }
+    .kpi b{font-size:26px}
+    .kpi small{display:block; color:var(--muted); margin-top:6px; line-height:1.35}
+
+    .twoCol{grid-template-columns:1fr 1fr}
+    @media (max-width: 960px){ .twoCol{grid-template-columns:1fr} }
+
+    .list{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.65}
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+    }
+    th,td{padding:12px; border-bottom:1px solid var(--line); text-align:left; font-size:14px}
+    th{background:rgba(255,255,255,.04)}
+    tr:last-child td{border-bottom:none}
+
+    .badge{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+      align-items:center;
+      gap:8px;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 6px rgba(46,139,122,.14)}
+
+    .ctaBox{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:
+        radial-gradient(800px 300px at 20% 0%, rgba(14,58,102,.22), transparent 60%),
+        radial-gradient(700px 300px at 80% 0%, rgba(46,139,122,.14), transparent 55%),
+        rgba(255,255,255,.03);
+    }
+    @media (max-width: 960px){ .ctaBox{flex-direction:column; align-items:stretch} }
+
+    form{display:grid; gap:10px}
+    input,textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+
+    footer{
+      padding:22px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px
+    }
+    .fine{color:rgba(170,182,207,.85); font-size:12px; line-height:1.55; margin-top:10px}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="На главную">
+      <!-- LOGO (final: strict + fresh; tunnel+overpass abstraction) -->
+      <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ООО Транспортная инфраструктура – Ковров">
+        <defs>
+          <linearGradient id="g" x1="40" y1="30" x2="160" y2="130" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0E3A66"/>
+            <stop offset="1" stop-color="#2E8B7A"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="24" y="24" width="112" height="112" rx="28" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)"/>
+        <!-- Overpass -->
+        <path d="M46 72H132" stroke="url(#g)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Tunnel portal -->
+        <path d="M52 112V92C52 69.9 69.9 52 92 52C114.1 52 132 69.9 132 92V112"
+              stroke="url(#g)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Road -->
+        <path d="M72 114L92 80L112 114" stroke="rgba(233,238,248,0.92)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M92 80V114" stroke="rgba(233,238,248,0.45)" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 10"/>
+
+        <!-- Wordmark -->
+        <text x="160" y="72" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+              font-size="22" font-weight="800" fill="#E9EEF8">ООО «ТРАНСПОРТНАЯ ИНФРАСТРУКТУРА»</text>
+        <text x="160" y="104" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial"
+              font-size="22" font-weight="800" fill="#E9EEF8">– КОВРОВ</text>
+      </svg>
+    </a>
+
+    <nav class="menu" aria-label="Навигация">
+      <a href="#services">Направления</a>
+      <a href="#project">Проект</a>
+      <a href="#tariffs">Тарифы</a>
+      <a href="#finance">Показатели</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+    <a class="btn primary" href="#contact">Запросить материалы</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid heroGrid">
+      <div>
+        <div class="badge"><span class="dot"></span> Инфраструктурные проекты полного цикла</div>
+        <h1>Транспортные сооружения<br/>для города и бизнеса</h1>
+        <p class="lead">
+          ООО «ТРАНСПОРТНАЯ ИНФРАСТРУКТУРА – КОВРОВ» реализует проекты по строительству тоннелей,
+          путепроводов, эстакад и иных транспортных сооружений — с фокусом на эффективность логистики,
+          снижение транзитной нагрузки и устойчивое развитие городской сети.
+        </p>
+
+        <div class="pillRow">
+          <span class="pill">Строго • корпоративно</span>
+          <span class="pill">Тоннели</span>
+          <span class="pill">Путепроводы / эстакады</span>
+          <span class="pill">Инвест-логика</span>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap">
+          <a class="btn primary" href="#project">Смотреть ключевой проект</a>
+          <a class="btn" href="#contact">Запросить презентацию</a>
+        </div>
+
+        <div class="fine">
+          Примечание: форма ниже — заявка “в один клик”. Для реальной отправки подключим email/CRM/Telegram-уведомления.
+        </div>
+      </div>
+
+      <div class="card pad">
+        <div class="titleRow" style="margin-bottom:10px">
+          <h2 style="font-size:18px">Почему это важно</h2>
+          <span class="badge">для города и перевозчиков</span>
+        </div>
+
+        <div class="grid kpiGrid">
+          <div class="kpi">
+            <b>Снижение транзита</b>
+            <small>разгрузка улично-дорожной сети</small>
+          </div>
+          <div class="kpi">
+            <b>Экономия времени</b>
+            <small>ускорение логистики и оборота</small>
+          </div>
+          <div class="kpi">
+            <b>Прозрачные тарифы</b>
+            <small>понятная модель для пользователей</small>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; line-height:1.55">
+          Стиль и подача — под инвесторов/администрации: строго, без “кричащего” маркетинга.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="titleRow">
+        <h2>Направления деятельности</h2>
+        <p class="sub">Широкий профиль транспортной инфраструктуры</p>
+      </div>
+
+      <div class="grid kpiGrid">
+        <div class="card pad">
+          <div class="badge"><span class="dot"></span> Тоннели</div>
+          <p class="lead" style="margin:12px 0 0">
+            Дорожные тоннели и подземные участки: снижение конфликтов потоков, безопасность и стабильная пропускная способность.
+          </p>
+        </div>
+        <div class="card pad">
+          <div class="badge"><span class="dot"></span> Путепроводы / эстакады</div>
+          <p class="lead" style="margin:12px 0 0">
+            Развязки, путепроводы, эстакады: устранение пересечений, сокращение задержек, повышение надёжности маршрутов.
+          </p>
+        </div>
+        <div class="card pad">
+          <div class="badge"><span class="dot"></span> Комплексные решения</div>
+          <p class="lead" style="margin:12px 0 0">
+            Инфраструктурное развитие: проектирование, согласования, строймонтаж, ввод, эксплуатационные модели и тарифная логика.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT -->
+  <section id="project">
+    <div class="wrap">
+      <div class="titleRow">
+        <h2>Ключевой проект</h2>
+        <p class="sub">Платный дорожный тоннель в г. Ковров</p>
+      </div>
+
+      <div class="grid twoCol">
+        <div class="card pad">
+          <h2 style="font-size:18px; margin-bottom:10px">Суть услуги</h2>
+          <p class="lead" style="margin:0">
+            Платный проезд через тоннель как практическая альтернатива длинному объезду —
+            экономия времени и затрат для тяжёлого транспорта, снижение транзитной нагрузки на городские дороги.
+          </p>
+          <ul class="list">
+            <li>объезд без тоннеля: +50 км</li>
+            <li>потеря времени при объезде: ~1 час</li>
+            <li>ориентир тарифа для тяжёлых грузовиков: 1 700 ₽</li>
+          </ul>
+        </div>
+
+        <div class="grid kpiGrid">
+          <div class="card pad kpi">
+            <b>+50 км</b>
+            <small>увеличение пути при объезде</small>
+          </div>
+          <div class="card pad kpi">
+            <b>~1 час</b>
+            <small>потери времени в пути</small>
+          </div>
+          <div class="card pad kpi">
+            <b>3 400 ₽</b>
+            <small>оценка стоимости объезда для фур</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFFS -->
+  <section id="tariffs">
+    <div class="wrap">
+      <div class="titleRow">
+        <h2>Тарифная политика</h2>
+        <p class="sub">Понятные категории и логика сокращения транзита</p>
+      </div>
+
+      <div class="card" style="overflow:hidden">
+        <table aria-label="Тарифы">
+          <thead>
+            <tr>
+              <th style="width:120px">Категория</th>
+              <th>Состав категории</th>
+              <th style="width:140px">Тариф</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><b>0</b></td><td>Легковые ТС (включая джипы и минивэны)</td><td><b>0 ₽</b></td></tr>
+            <tr><td><b>1</b></td><td>Лёгкие грузовики до 3,5 т (2 оси)</td><td><b>0 ₽</b></td></tr>
+            <tr><td><b>2</b></td><td>Средние грузовики 3,5–12 т (2 оси)</td><td><b>600 ₽</b></td></tr>
+            <tr><td><b>3</b></td><td>Тяжёлые грузовики 12 т+ (3 оси)</td><td><b>1 700 ₽</b></td></tr>
+            <tr><td><b>4</b></td><td>Тяжёлые грузовики 12 т+ (4+ осей)</td><td><b>1 700 ₽</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fine">
+        Тарифы и параметры — можно заменить на ваши окончательные значения (если будут уточнения).
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCE -->
+  <section id="finance">
+    <div class="wrap">
+      <div class="titleRow">
+        <h2>Инвестиционные показатели</h2>
+        <p class="sub">Коротко и по делу</p>
+      </div>
+
+      <div class="grid kpiGrid">
+        <div class="card pad kpi">
+          <b>748,456 млн ₽</b>
+          <small>потребность в финансировании на инвестфазе</small>
+        </div>
+        <div class="card pad kpi">
+          <b>NPV 676,1 млн ₽</b>
+          <small>инвестиционная эффективность</small>
+        </div>
+        <div class="card pad kpi">
+          <b>IRR 25,94%</b>
+          <small>внутренняя норма доходности</small>
+        </div>
+      </div>
+
+      <div class="grid twoCol" style="margin-top:16px">
+        <div class="card pad">
+          <h2 style="font-size:18px; margin-bottom:10px">Результаты</h2>
+          <ul class="list">
+            <li>Выручка с НДС: <b>25,569 млрд ₽</b></li>
+            <li>Чистый денежный поток: <b>12,489 млрд ₽</b></li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h2 style="font-size:18px; margin-bottom:10px">Окупаемость</h2>
+          <ul class="list">
+            <li>Простой срок: <b>4,95 года</b></li>
+            <li>Дисконтированный срок: <b>7,75 лет</b></li>
+            <li>PI: <b>1,76</b>, ставка дисконтирования: <b>15%</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="ctaBox">
+        <div>
+          <h2 style="margin:0 0 8px">Запросить материалы</h2>
+          <p class="sub" style="margin:0">
+            Оставьте контакты — и мы направим презентацию, расчёт проезда и при необходимости финансовую модель.
+          </p>
+          <div class="pillRow" style="margin-top:14px">
+            <span class="pill">Инвесторам</span>
+            <span class="pill">Перевозчикам</span>
+            <span class="pill">Администрациям</span>
+          </div>
+        </div>
+
+        <div class="card pad" style="min-width:360px; max-width:460px; width:100%">
+          <form onsubmit="return handleSubmit(event)">
+            <input name="name" placeholder="Ваше имя / компания" required />
+            <input name="contact" placeholder="Телефон или email" required />
+            <textarea name="msg" placeholder="Коротко: что нужно (презентация / финмодель / встреча)"></textarea>
+            <button class="btn primary" type="submit">Отправить запрос</button>
+            <div id="formStatus" class="fine" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+
+      <footer>
+        <div class="wrap" style="padding:0; display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; align-items:center">
+          <span>© ООО «ТРАНСПОРТНАЯ ИНФРАСТРУКТУРА – КОВРОВ»</span>
+          <span>Тоннели • Путепроводы • Транспортные сооружения</span>
+        </div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+  function handleSubmit(e){
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const fd = new FormData(e.target);
+    const payload = Object.fromEntries(fd.entries());
+    console.log('Form payload:', payload);
+    status.textContent = "Готово: заявка сформирована. Чтобы реально отправлять, подключим email/CRM/Telegram.";
+    e.target.reset();
+    return false;
+  }
+</script>
+
+</body>
+</html>
